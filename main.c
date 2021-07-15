@@ -47,7 +47,7 @@ int main(void)
 // 		  show_value();
 //   show_value_3ADC();
 //		MOTOR_CONTRAL(100,0);		
-  if(KEY2==key)  		//°´¼üÉ¨Ãèº¯Êı
+  if(KEY2==key)  		//æŒ‰é”®æ‰«æå‡½æ•°
 		{
 			delay_ms(1500);
 			From_1_TO_2();
@@ -61,16 +61,16 @@ int main(void)
 	if(KEY3==key)
 	  {	
       delay_ms(1500);
-      PID_realize(90,13,Middle,30600,2); 		//±àÂëÆ÷Ñ²Ïßµ÷ÕûÎ»ÖÃ£¬×¼±¸¼ÓËÙ
-			//PID_realize(100,16,Middle,0,1);      	//µ÷ÕûÎ»ÖÃ£¬×¼±¸¼ÓËÙ
+      PID_realize(90,13,Middle,30600,2); 		//ç¼–ç å™¨å·¡çº¿è°ƒæ•´ä½ç½®ï¼Œå‡†å¤‡åŠ é€Ÿ
+			//PID_realize(100,16,Middle,0,1);      	//è°ƒæ•´ä½ç½®ï¼Œå‡†å¤‡åŠ é€Ÿ
 			
-			Set_Speed_And_Mode(0,200,1,0);	  	  //±ä»»Ä£Ê½	
-	    PID_realize(100,7,Middle,33000,1);  //±àÂëÆ÷¼ÓËÙÒ»¶Î
-			Set_Speed_And_Mode(0,220,0,0);	  	  //±ä»»Ä£Ê½	
+			Set_Speed_And_Mode(0,200,1,0);	  	  //å˜æ¢æ¨¡å¼	
+	    PID_realize(100,7,Middle,33000,1);  //ç¼–ç å™¨åŠ é€Ÿä¸€æ®µ
+			Set_Speed_And_Mode(0,220,0,0);	  	  //å˜æ¢æ¨¡å¼	
 			
-			PID_realize(100,2,Left,0,1);  //±àÂëÆ÷¼ÓËÙÒ»¶Î
+			PID_realize(100,2,Left,0,1);  //ç¼–ç å™¨åŠ é€Ÿä¸€æ®µ
 			
-		  PID_realize(100,17,Middle,0,2);  //±àÂëÆ÷¼ÓËÙÒ»¶Î
+		  PID_realize(100,17,Middle,0,2);  //ç¼–ç å™¨åŠ é€Ÿä¸€æ®µ
 			
 			MOTOR_CONTRAL(0,0);
 	  }
@@ -78,17 +78,17 @@ int main(void)
 	if(KEY4==key)
 	  {
 			delay_ms(1500);
-		  Set_Speed_And_Mode(0,220,0,0);	  		//±ä»»Ä£Ê½
+		  Set_Speed_And_Mode(0,220,0,0);	  		//å˜æ¢æ¨¡å¼
       PID_realize(100,8,Middle,0,1.5);	//
-		  Set_Speed_And_Mode(0,220,3,0);	  		//±ä»»Ä£Ê½
+		  Set_Speed_And_Mode(0,220,3,0);	  		//å˜æ¢æ¨¡å¼
 			PID_realize(50,22,Middle,0,1.5);     	//
 			if(Interrupt_Counter>100)
 				{
 					Bucket_Status[3]=1;
 					Go_Advance(-60,23);
 					Interrupt_Counter=0;
-					Standard_Angle=JY901_Yaw;     				//¼ÇÂ¼±ê×¼½Ç¶ÈÓÃÓÚºóÃæµÄÍÓÂİÒÇ×ßÖ±ÏßºÍ×ªÍä
-		      MPU_Turnback(Left,110,180,20);    //Æ½Ì¨ÍÓÂİÒÇ×ªÍä
+					Standard_Angle=JY901_Yaw;     				//è®°å½•æ ‡å‡†è§’åº¦ç”¨äºåé¢çš„é™€èºä»ªèµ°ç›´çº¿å’Œè½¬å¼¯
+		      MPU_Turnback(Left,110,180,20);    //å¹³å°é™€èºä»ªè½¬å¼¯
 				}
 			else
 				PID_realize(100,2,Middle,0,1.5);
@@ -104,13 +104,13 @@ int main(void)
 			{
 				PID_realize(100,0,Middle,0,1);     	//
 		    PID_realize(100,5,Middle,0,1);     	//
-		    GM_Turnback(100,Left,4);       //¹âÃô×ªÍä
-		    GM_Turnback(100,Left,5);       //¹âÃô×ªÍä
+		    GM_Turnback(100,Left,4);       //å…‰æ•è½¬å¼¯
+		    GM_Turnback(100,Left,5);       //å…‰æ•è½¬å¼¯
 				
 				PID_realize(100,10,Middle,0,2);	//
-				Set_Speed_And_Mode(0,220,1,0);	  		//±ä»»Ä£Ê½
+				Set_Speed_And_Mode(0,220,1,0);	  		//å˜æ¢æ¨¡å¼
 				PID_realize(100,13,Middle,33000,1.5);     	//
-				Set_Speed_And_Mode(0,220,2,0);	  		//±ä»»Ä£Ê½
+				Set_Speed_And_Mode(0,220,2,0);	  		//å˜æ¢æ¨¡å¼
 				PID_realize(sp,5,Middle,0,1);     	//		
 			}
 			else if(Bucket_Status[2]==1)
@@ -118,40 +118,36 @@ int main(void)
 				PID_realize(100,0,Middle,0,1);     	//
 		    PID_realize(100,5,Middle,0,1);     	//
 
-		    GM_Turnback(100,Left,5);       //¹âÃô×ªÍä
+		    GM_Turnback(100,Left,5);       //å…‰æ•è½¬å¼¯
 				
 				PID_realize(100,10,Middle,0,2);	//
-//				Set_Speed_And_Mode(0,220,1,0);	  		//±ä»»Ä£Ê½
+//				Set_Speed_And_Mode(0,220,1,0);	  		//å˜æ¢æ¨¡å¼
 				PID_realize(100,5,Middle,33000,1.5);  
 			}
 			else if(Bucket_Status[0]==1)
 			{
 				Set_Speed_And_Mode(0,220,0,1);
-				PID_realize(80,13,Middle,30600,2); 		//±àÂëÆ÷Ñ²Ïßµ÷ÕûÎ»ÖÃ£¬×¼±¸¼ÓËÙ
-			  PID_realize(90,16,Middle,0,1.5);      	//µ÷ÕûÎ»ÖÃ£¬×¼±¸¼ÓËÙ
+				PID_realize(80,13,Middle,30600,2); 		//ç¼–ç å™¨å·¡çº¿è°ƒæ•´ä½ç½®ï¼Œå‡†å¤‡åŠ é€Ÿ
+			  PID_realize(90,16,Middle,0,1.5);      	//è°ƒæ•´ä½ç½®ï¼Œå‡†å¤‡åŠ é€Ÿ
 			
-			  Set_Speed_And_Mode(0,220,1,1);	  	  //±ä»»Ä£Ê½	
-	      PID_realize(90,7,Middle,36000,1);  //±àÂëÆ÷¼ÓËÙÒ»¶Î
-			  Set_Speed_And_Mode(0,220,0,0);	  	  //±ä»»Ä£Ê½	
+			  Set_Speed_And_Mode(0,220,1,1);	  	  //å˜æ¢æ¨¡å¼	
+	      PID_realize(90,7,Middle,36000,1);  //ç¼–ç å™¨åŠ é€Ÿä¸€æ®µ
+			  Set_Speed_And_Mode(0,220,0,0);	  	  //å˜æ¢æ¨¡å¼	
 					
-			  PID_realize(100,19,Middle,0,1.5);      	//µ÷ÕûÎ»ÖÃ£¬×¼±¸¼ÓËÙ
+			  PID_realize(100,19,Middle,0,1.5);      	//è°ƒæ•´ä½ç½®ï¼Œå‡†å¤‡åŠ é€Ÿ
 					
 				GM_Turnback(100,Left,6);
 										
 				PID_realize(100,10,Middle,0,2);	//
-				Set_Speed_And_Mode(0,220,1,0);	  		//±ä»»Ä£Ê½
+				Set_Speed_And_Mode(0,220,1,0);	  		//å˜æ¢æ¨¡å¼
 				PID_realize(100,13,Middle,33000,1.5);     	//
-				Set_Speed_And_Mode(0,220,2,0);	  		//±ä»»Ä£Ê½
+				Set_Speed_And_Mode(0,220,2,0);	  		//å˜æ¢æ¨¡å¼
 				PID_realize(sp,5,Middle,0,1);     	//			
 			}
 		 	MOTOR_CONTRAL(0,0);	
     }
   }
 
-}
-	
-
-		
-//		Move_Servos_Array(5,1000,0,1700,1,600,2,2000,3,700,4,1280);			
+}			
 
 
